@@ -24,6 +24,9 @@ public class Task implements Serializable {
         this.state = state;
     }
 
+    public Task() {
+    }
+
     public int getId() {
         return id;
     }
