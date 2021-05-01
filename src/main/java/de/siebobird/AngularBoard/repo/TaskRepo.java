@@ -11,4 +11,6 @@ public interface TaskRepo extends JpaRepository<Task, Integer> {
 
     Optional<List<Task>> findTasksByName(String name);
 
+    Optional<List<Task>> findTasksByState(Integer state);
+
 }

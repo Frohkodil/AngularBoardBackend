@@ -24,9 +24,9 @@ public class TaskResource {
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{name}")
-    public ResponseEntity<List<Task>> getTaskByName (@PathVariable("name") String name) {
-        List<Task> tasks = taskService.findTaskByName(name);
+    @GetMapping("/{state}")
+    public ResponseEntity<List<Task>> getTaskByStatus (@PathVariable("state") Integer state) {
+        List<Task> tasks = taskService.findTaskByStatus(state);
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 

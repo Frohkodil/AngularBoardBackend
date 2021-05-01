@@ -17,12 +17,6 @@ public class Task implements Serializable {
     private Date date;
     private int state;
 
-    public Task(String name, String description, Date date, int state) {
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.state = state;
-    }
 
     public Task() {
     }

@@ -1,5 +1,6 @@
 package de.siebobird.AngularBoard.service;
 
+import de.siebobird.AngularBoard.exception.NoTasksForStateException;
 import de.siebobird.AngularBoard.exception.TaskNotFoundException;
 import de.siebobird.AngularBoard.model.Task;
 import de.siebobird.AngularBoard.repo.TaskRepo;
@@ -29,8 +30,8 @@ public class TaskService {
         taskRepo.deleteTaskById(id);
     }
 
-    public List<Task> findTaskByName(String name) {
-        return taskRepo.findTasksByName(name).orElseThrow(() -> new TaskNotFoundException("Task nicht gefunden"));
+    public List<Task> findTaskByStatus(Integer state) {
+        return taskRepo.findTasksByState(state).orElseThrow(() -> new NoTasksForStateException("Keine Tasks für diesen Status"));
     }
     public Task updateTask(Task task) {
         return taskRepo.save(task);
